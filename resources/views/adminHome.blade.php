@@ -15,6 +15,8 @@
                     @endif
                     You are logged in {{ auth()->user()->name }} with type Admin
                     {{ __('You are logged in!') }}
+                    <p>
+                        <a href="{{ route('user.index') }}">Manajemen Pengguna</a>
                 </div>
             </div>
         </div>
