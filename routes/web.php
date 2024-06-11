@@ -8,6 +8,8 @@ use App\Http\Controllers\SbfillwController;
 use App\Http\Controllers\SbpatternController;
 use App\Http\Controllers\SbsizeController;
 use App\Http\Controllers\SbtypeController;
+use App\Http\Controllers\CustomerController;
+/*
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,5 +35,6 @@ Route::group(['middleware' => ['user-access:1','user-access:1'] ], function(){
         'sbsize' => SbsizeController::class,
         'sbpattern' => SbpatternController::class,
         'sbfillw' => SbfillwController::class,
+        'customer' => CustomerController::class,
     ]);
 });

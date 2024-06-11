@@ -21,6 +21,7 @@
                     <p><a href="{{ route('sbpattern.index') }}">Manajemen Pola Sleeping Bag</a>
                     <p><a href="{{ route('sbsize.index') }}">Manajemen Ukuran Sleeping Bag</a>
                     <p><a href="{{ route('sbfillw.index') }}">Manajemen Berat Isian Sleeping Bag</a>
+                    <p><a href="{{ route('customer.index') }}">Manajemen Pelanggan</a>
                 </div>
             </div>
         </div>
