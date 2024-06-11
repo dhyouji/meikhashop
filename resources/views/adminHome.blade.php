@@ -22,6 +22,8 @@
                     <p><a href="{{ route('sbsize.index') }}">Manajemen Ukuran Sleeping Bag</a>
                     <p><a href="{{ route('sbfillw.index') }}">Manajemen Berat Isian Sleeping Bag</a>
                     <p><a href="{{ route('customer.index') }}">Manajemen Pelanggan</a>
+                    <p><a href="{{ route('preorder.index') }}">Manajemen Preorder</a>
+                    <p><a href="{{ route('prod.index') }}">Manajemen Produksi</a>
                 </div>
             </div>
         </div>
