@@ -13,10 +13,14 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    You are logged in {{ auth()->user()->name }} with type Admin
-                    {{ __('You are logged in!') }}
-                    <p>
-                        <a href="{{ route('user.index') }}">Manajemen Pengguna</a>
+                    <p>You are logged in {{ auth()->user()->name }} with type Admin
+                        {{ __('You are logged in!') }}
+
+                    <p><a href="{{ route('user.index') }}">Manajemen Pengguna</a>
+                    <p><a href="{{ route('sbtype.index') }}">Manajemen Tipe Sleeping Bag</a>
+                    <p><a href="{{ route('sbpattern.index') }}">Manajemen Pola Sleeping Bag</a>
+                    <p><a href="{{ route('sbsize.index') }}">Manajemen Ukuran Sleeping Bag</a>
+                    <p><a href="{{ route('sbfillw.index') }}">Manajemen Berat Isian Sleeping Bag</a>
                 </div>
             </div>
         </div>
