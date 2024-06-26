@@ -18,6 +18,7 @@ class Preorder extends Model
         'datetime',
         'status',
         'customer',
+        'tracknum',
     ];
     public $timestamps = false;
 }

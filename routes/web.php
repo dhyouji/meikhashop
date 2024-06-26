@@ -11,6 +11,7 @@ use App\Http\Controllers\SbtypeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PreorderController;
 use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\TrackingController;
 /*
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +24,11 @@ use App\Http\Controllers\ProductionController;
 |
 */
   
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\ProductionController::class, 'homepage'])->name('homepage');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/track', [App\Http\Controllers\ProductionController::class, 'tracking'])->name('track');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::group(['middleware' => ['user-access:0.1.2']], function () {
     Route::resources([
         'prod' => ProductionController::class,

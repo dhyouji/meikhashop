@@ -143,7 +143,7 @@ class PreorderController extends Controller
         $fillwId = Sbfillw::where(['key' => $preorder->fillw])->first()->id;
         $sizeId = Sbsize::where(['key' => $preorder->size])->first()->id;
     
-        $tracknum = " $preorderId$customerid$typeId$patternId$fillwId$sizeId ";
+        $tracknum = "$preorderId$customerid$typeId$patternId$fillwId$sizeId";
         $tracknum = Preorder::where('id',$preorderId)->update(['tracknum' => $tracknum]);
 
         $prod = Production::create([
@@ -243,6 +243,12 @@ class PreorderController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Preorder $preorder)
+    {
+        $preorder->delete();
+        return redirect('preorder');
+    }
+     
+    public function invoice(request $request)
     {
         $preorder->delete();
         return redirect('preorder');

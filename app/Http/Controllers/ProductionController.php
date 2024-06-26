@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Production;
+use App\Models\Preorder;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -91,4 +92,18 @@ class ProductionController extends Controller
     {
         //
     }
+
+    public function homepage(Request $request)
+    {
+        return view('Home');
+    }
+
+    public function tracking(Request $request)
+    {
+        $po = Preorder::where('tracknum', $request->tracknum)->first()->id;
+        $data['prodData'] = Production::where('preorder', $po)->get();
+        return view('production.tracking', $data);
+    }
+
+
 }
