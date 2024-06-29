@@ -27,6 +27,7 @@ use App\Http\Controllers\TrackingController;
 Route::get('/', [App\Http\Controllers\ProductionController::class, 'homepage'])->name('homepage');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/track', [App\Http\Controllers\ProductionController::class, 'tracking'])->name('track');
+Route::get('/test', function () { return view('preorder.invoice'); });
 
 Auth::routes();
 Route::group(['middleware' => ['user-access:0.1.2']], function () {
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['user-access:0.1.2']], function () {
     Route::post('preorder/postcreate1', [App\Http\Controllers\PreorderController::class, 'postcreate1'])->name('preorder.postcreate1');
     Route::post('preorder/postcreate2', [App\Http\Controllers\PreorderController::class, 'postcreate2'])->name('preorder.postcreate2');
     Route::post('preorder/postcreate3', [App\Http\Controllers\PreorderController::class, 'postcreate3'])->name('preorder.postcreate3');
+    Route::get('preorder/invoice/{preorder}/', [App\Http\Controllers\PreorderController::class, 'invoice'])->name('preorder.invoice');
 });
 
 Route::group(['middleware' => ['user-access:2']], function () {

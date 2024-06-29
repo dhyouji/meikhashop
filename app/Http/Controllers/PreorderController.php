@@ -12,6 +12,7 @@ use App\Models\Sbsize;
 use App\Models\Sbtype;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use PDF;
 
 class PreorderController extends Controller
 {
@@ -248,9 +249,15 @@ class PreorderController extends Controller
         return redirect('preorder');
     }
      
-    public function invoice(request $request)
+    public function invoice(Preorder $preorder)
     {
-        $preorder->delete();
-        return redirect('preorder');
+        $data['po'] = $preorder ;
+        $tracknum = $preorder->tracknum;
+        $data['cust'] = Customer::where('id', $preorder->customer)->first();
+        // return view('preorder.invoice', $data);
+        $pdf = PDF::loadView('preorder.invoice', $data);
+        return $pdf->stream("invoice-$tracknum.pdf");
+        // return $pdf->stream();
+        // return Pdf::view('preorder.invoice', $data)->name('invoice-2023-04-10.pdf')->download();
     }
 }
