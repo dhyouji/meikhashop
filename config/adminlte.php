@@ -99,10 +99,7 @@ return [
     | Preloader Animation
     |--------------------------------------------------------------------------
     |
-    | Here you can change the preloader animation configuration. Currently, two
-    | modes are supported: 'fullscreen' for a fullscreen preloader animation
-    | and 'cwrapper' to attach the preloader animation into the content-wrapper
-    | element and avoid overlapping it with the sidebars and the top navbar.
+    | Here you can change the preloader animation configuration.
     |
     | For detailed instructions you can look the preloader section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
@@ -111,7 +108,6 @@ return [
 
     'preloader' => [
         'enabled' => true,
-        'mode' => 'fullscreen',
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'AdminLTE Preloader Image',
@@ -295,15 +291,15 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'search',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type'         => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
 
         // Sidebar items:
         [
@@ -312,83 +308,74 @@ return [
         ],
         [
             'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
+            'url'  => 'admin/blog',
+            'can'  => 'manage-blog',
         ],
+        ['header' => 'Worker Menu',],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
+            'text'        => 'Preorder',
+            'url'         => 'preorder',
+            'can'         => ['Manager', 'Admin'],
+            'icon'        => 'far fa-fw fa-solid fa-list-check',
+            'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
+            'text'        => 'Produksi',
+            'url'         => 'prod',
+            'can'         => ['Manager', 'Admin', 'User'],
+            'icon'        => 'far fa-fw fa-solid fa-business-time',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Customer',
+            'url'         => 'customer',
+            'can'         => ['Manager', 'Admin'],
+            'icon'        => 'far fa-fw fa-solid fa-user-tag',
+        ],
+        [
+            'header' => 'Management Setting',
+            'can'  => ['Manager', 'Admin'],
+        ],
+        [
+            'text' => 'Staff',
+            'url'  => 'user',
+            'can'  => ['Manager', 'Admin'],
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'text'    => 'Sleeping Bag',
+            'icon'    => 'fas fa-fw fa-mattress-pillow',
+            'can'  => ['Manager', 'Admin'],
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Type',
+                    'url'  => 'sbtype',
+                    'can'  => ['Manager', 'Admin'],
+                    'icon' => 'fas fa-fw fa-layer-group',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Pattern',
+                    'url'  => 'sbpattern',
+                    'can'  => ['Manager', 'Admin'],
+                    'icon' => 'fas fa-fw fa-circle-half-stroke',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Size',
+                    'url'  => 'sbsize',
+                    'can'  => ['Manager', 'Admin'],
+                    'icon' => 'fas fa-fw fa-up-right-and-down-left-from-center',
+                ],
+                [
+                    'text' => 'Fill Weight',
+                    'url'  => 'sbfillw',
+                    'can'  => ['Manager', 'Admin'],
+                    'icon' => 'fas fa-fw fa-feather',
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Menu Filters
