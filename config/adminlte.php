@@ -377,6 +377,38 @@ return [
                 ],
             ],
         ],
+        [
+            'header' => 'Contact',
+            'can'  => ['Guest'],
+        ],
+        [
+            'text' => 'Whatshapp',
+            'url'  => 'http://wa.me/6283100617644',
+            'icon' => 'fas fa-brands fa-whatsapp',
+        ],
+        [
+            'text' => 'Instagram',
+            'url'  => 'http://www.instagram.com/meikhashop_gia',
+            'icon' => 'fas fa-brands fa-instagram',
+        ],
+        [
+            'header' => 'Marketplace',
+        ],
+        [
+            'text' => 'Bukalapak',
+            'url'  => 'http://www.bukalapak.com/meikha',
+            'icon'    => 'fas fa-solid fa-store',
+        ],
+        [
+            'text' => 'Shopee',
+            'url'  => 'https://shopee.co.id/base_king_official_400',
+            'icon'    => 'fas fa-solid fa-store',
+        ],
+        [
+            'text' => 'Tokopedia',
+            'url'  => 'http://www.tokopedia.com/meikhashop',
+            'icon'    => 'fas fa-solid fa-store',
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
