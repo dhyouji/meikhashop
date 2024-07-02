@@ -379,7 +379,6 @@ return [
         ],
         [
             'header' => 'Contact',
-            'can'  => ['Guest'],
         ],
         [
             'text' => 'Whatshapp',
