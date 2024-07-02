@@ -1,0 +1,27 @@
+html,
+body {
+height: 100%;
+margin: 0;
+}
+
+.content {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+height: 600px;
+}
+
+.bg {
+background-image: url('/assets/img/bg.png');
+background-size: contain;
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-position:bottom;
+position: relative;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }

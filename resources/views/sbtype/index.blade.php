@@ -1,26 +1,32 @@
-@extends('.layouts.app')
+@extends('adminlte::page')
+
+@section('title', $title)
+
+@section('content_header')
+<h1>{{$title}}</h1>
+@stop
+
 @section('content')
-<div class="card card-default">
+<div class="card">
+
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
     <div class="card-header">
-        <form class="form-inline">
-        <div class="pull-left">
-            <h2>{{$title}}</h2>
-        </div>
+        <form>
             <div class="input-group mr-1">
                 <input class="form-control" type="text" name="q" value="{{ $q}}" placeholder="Pencarian..." />
-                <button class="btn btn-success"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
-                <a class="btn btn-primary" href="{{ route('sbtype.create') }}"><i class="bi bi-plus-lg"></i> Tambah Tipe Sleeping Bag</a>
+                <button class="btn btn-success" type="submit"><i class="bi bi-arrow-clockwise"></i> Cari</button>
+                <button class="btn btn-warning"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
+                <a class="btn btn-primary" href="{{ route('sbtype.create') }}"><i class="bi bi-plus-lg"></i> Tambah Tipe
+                    Sleeping Bag</a>
             </div>
         </form>
     </div>
-    
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
-    <div class="card-body table-responsive">
+    <div class="card-body">
         <table class="table table-bordered table-striped table-hover mb-0">
             <thead>
                 <tr>
@@ -51,4 +57,15 @@
         </table>
     </div>
 </div>
-@endsection
+<div class="card-footer clearfix">
+</div>
+</div>
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+
+@stop
