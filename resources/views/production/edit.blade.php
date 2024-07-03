@@ -18,37 +18,36 @@
         </ul>
     </div>
     @endif
-    <div class="card-header">
+
+    <div class="card-body row g-3 form-group">
+        <form action="{{ route('prod.update',$row->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method("PUT")
+            <input class="form-control" type="hidden" name="in_id" placeholder="Kata Kunci"
+                value="{{ old('in_id', $row->id) }}" />
+            <input class="form-control" type="hidden" name="in_preorder" placeholder="Kata Kunci"
+                value="{{ old('in_preorder', $row->preorder) }}" />
+            <input class="form-control" type="hidden" name="in_staff" placeholder="Kata Kunci"
+                value="{{ old('in_staff', $staff->id) }}" />
     </div>
-    <div class="card-body">
-        <div class="input-group mb-3">
-            <form action="{{ route('prod.update',$row->id) }}" method="POST">
-                @csrf
-                @method("PUT")
-                <input class="form-control" type="hidden" name="in_id" placeholder="Kata Kunci"
-                    value="{{ old('in_id', $row->id) }}" />
-                <input class="form-control" type="hidden" name="in_preorder" placeholder="Kata Kunci"
-                    value="{{ old('in_preorder', $row->preorder) }}" />
-                <input class="form-control" type="hidden" name="in_staff" placeholder="Kata Kunci"
-                    value="{{ old('in_staff', $staff->id) }}" />
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Pengerjaan<span class="text-danger">*</span></span>
-            <input class="form-control" type="" name="in_taskst" placeholder="Pengerjaan"
-                value="{{ old('in_staff', $row->taskst) }}" />
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text">Catatan<span class="text-danger">*</span></span>
-            <input class="form-control" type="" name="in_note" placeholder="Catatan" />
-        </div>
-        <div class="input-group mb-3 justify-content-center">
-            <button class="btn btn-primary">Simpan</button>
-            <a class="btn btn-danger" href="{{ url('prod')}}">Kembali</a>
-        </div>
-        </form>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Pengerjaan<span class="text-danger">*</span></span>
+        <input class="form-control" type="" name="in_taskst" placeholder="Pengerjaan"
+            value="{{ old('in_staff', $row->taskst) }}" />
     </div>
-    <div class="card-footer clearfix">
+    <div class="input-group mb-3">
+        <span class="input-group-text">Catatan<span class="text-danger">*</span></span>
+        <input class="form-control" type="" name="in_note" placeholder="Catatan" />
     </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Upload Gambar<span class="text-danger">*</span></span>
+        <input class="form-control" type="file" name="in_image" />
+    </div>
+    <div class="input-group mb-3 justify-content-center">
+        <button class="btn btn-primary">Simpan</button>
+        <a class="btn btn-danger" href="{{ url()->previous() }}">Kembali</a>
+    </div>
+    </form>
 </div>
 @stop
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('preorder');
             $table->string('taskst');
-            $table->string('note');
+            $table->string('note')->nullable();;
             $table->string('datetime');
             $table->string('staff')->nullable();
             $table->boolean('status')->default('1');

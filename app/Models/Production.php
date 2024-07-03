@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Production extends Model
 {
-    protected $fillable = ['id','preorder','taskst','note','datetime','staff','status'];
+    protected $fillable = ['id','preorder','taskst','note','datetime','staff','image','status'];
     protected $guarded = [];
     public $timestamps = false;
 }
