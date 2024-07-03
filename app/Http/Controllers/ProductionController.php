@@ -72,13 +72,23 @@ class ProductionController extends Controller
      */
     public function update(Request $request, Production $production)
     {
+        $request->validate([
+            'in_image' => 'required|image|mimes:jpeg,png,jpg,gif',
+        ]);
+        $folderPath = 'production/img/'.$request->in_preorder.'/';
+        $imageName = 'PO'.$request->in_preorder.'_'.time().'.'.$request->in_image->extension();
+
         $prod = Production::create([
             'preorder' => $request->in_preorder,
             'taskst' => $request->in_taskst,
             'note' => $request->in_note,
             'datetime' => Carbon::now(),
             'staff' => Auth::id(),
+            'image' => $folderPath.$imageName,
         ]);
+        
+        $request->in_image->move(public_path($folderPath), $imageName);
+
         $ProdId = $request->in_id;
         $archv = Production::where('id',$ProdId)->update(['status' => 0]);
         
