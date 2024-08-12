@@ -35,7 +35,8 @@
             <h5 class="card-title">{{ $row->taskst }}</h5>
             <p class="card-text">catatan : {{ $row->note }}</p>
             @if($row->image != null)
-            <img src="{{ asset($row->image) }}" style="border: 1px solid #000; max-width:300px; max-height:300px;">
+            <img src="{{ asset('storage/'.$row->image) }}"
+                style="border: 1px solid #000; max-width:300px; max-height:300px;">
             @endif
         </div>
         @endforeach

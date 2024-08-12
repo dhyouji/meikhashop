@@ -87,7 +87,7 @@ class ProductionController extends Controller
             'image' => $folderPath.$imageName,
         ]);
         
-        $request->in_image->move(public_path($folderPath), $imageName);
+        $request->in_image->move(storage_path('app/public/'.$folderPath), $imageName);
 
         $ProdId = $request->in_id;
         $archv = Production::where('id',$ProdId)->update(['status' => 0]);

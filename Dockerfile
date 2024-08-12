@@ -51,7 +51,7 @@ COPY sshd_config /etc/ssh/
 
 # Set file permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache 
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache 
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/vendor
 
 # Enable Apache modules
 RUN a2enmod rewrite
