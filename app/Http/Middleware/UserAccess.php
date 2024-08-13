@@ -17,10 +17,7 @@ class UserAccess
      */
     public function handle(Request $request, Closure $next, $userType): Response
     {
-        $authval = explode('.', $userType);
-        // if(auth()->user()->type == $authval){
-        if(in_array(auth()->user()->type, $authval)){
-        // if(in_array(auth()->user()->type, explode('.', $userType))){
+        if(in_array(auth()->user()->type, explode('.', $userType))){
             return $next($request);
         }    
           
