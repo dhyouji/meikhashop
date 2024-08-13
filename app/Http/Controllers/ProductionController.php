@@ -72,27 +72,44 @@ class ProductionController extends Controller
      */
     public function update(Request $request, Production $production)
     {
-        $request->validate([
-            'in_image' => 'image|mimes:jpeg,png,jpg,gif',
-        ]);
-        $folderPath = 'production/img/'.$request->in_preorder.'/';
-        $imageName = 'PO'.$request->in_preorder.'_'.time().'.'.$request->in_image->extension();
+        if($request->in_image != null){
 
-        $prod = Production::create([
-            'preorder' => $request->in_preorder,
-            'taskst' => $request->in_taskst,
-            'note' => $request->in_note,
-            'datetime' => Carbon::now(),
-            'staff' => Auth::id(),
-            'image' => $folderPath.$imageName,
-        ]);
-        
-        $request->in_image->move(storage_path('app/public/'.$folderPath), $imageName);
+            $request->validate([
+                'in_image' => 'image|mimes:jpeg,png,jpg,gif',
+            ]);
+            $folderPath = 'production/img/'.$request->in_preorder.'/';
+            $imageName = 'PO'.$request->in_preorder.'_'.time().'.'.$request->in_image->extension();
 
-        $ProdId = $request->in_id;
-        $archv = Production::where('id',$ProdId)->update(['status' => 0]);
-        
-        return redirect('prod');
+            $prod = Production::create([
+                'preorder' => $request->in_preorder,
+                'taskst' => $request->in_taskst,
+                'note' => $request->in_note,
+                'datetime' => Carbon::now(),
+                'staff' => Auth::id(),
+                'image' => $folderPath.$imageName,
+            ]);
+            
+            $request->in_image->move(storage_path('app/public/'.$folderPath), $imageName);
+    
+            $ProdId = $request->in_id;
+            $archv = Production::where('id',$ProdId)->update(['status' => 0]);
+            
+            return redirect('prod');
+        }
+        else{
+            $prod = Production::create([
+                'preorder' => $request->in_preorder,
+                'taskst' => $request->in_taskst,
+                'note' => $request->in_note,
+                'datetime' => Carbon::now(),
+                'staff' => Auth::id(),
+            ]);
+    
+            $ProdId = $request->in_id;
+            $archv = Production::where('id',$ProdId)->update(['status' => 0]);
+            
+            return redirect('prod');
+        }
     }
 
     /**
