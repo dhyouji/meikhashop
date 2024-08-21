@@ -25,6 +25,7 @@ use App\Http\Controllers\TrackingController;
 */
   
 Route::get('/', [App\Http\Controllers\ProductionController::class, 'homepage'])->name('homepage');
+Route::view('/about','About');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/track', [App\Http\Controllers\ProductionController::class, 'tracking'])->name('track');
 Route::get('/test', function () { return view('preorder.invoice'); });

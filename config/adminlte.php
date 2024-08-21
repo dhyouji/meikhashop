@@ -343,7 +343,7 @@ return [
         [
             'text' => 'Staff',
             'url'  => 'user',
-            'can'  => ['Manager', 'Admin'],
+            'can'  => ['Manager'],
             'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -376,6 +376,11 @@ return [
                     'icon' => 'fas fa-fw fa-feather',
                 ],
             ],
+        ],
+        [
+            'text' => 'Tentang Kami',
+            'url'  => 'about',
+            'icon' => 'fas fa-info-circle',
         ],
         [
             'header' => 'Contact',
